@@ -6,11 +6,7 @@ pipeline {
     stages {
         stage("Build") {
             // compile and build the fat jar with all third party dependencies
-            agent {
-                docker {image 'gradle:6.9-jdk11'}
-            }
             steps {
-                sh "gradle -v"
                 sh "./gradlew clean build"
             }
         }
