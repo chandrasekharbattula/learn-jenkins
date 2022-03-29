@@ -1,4 +1,5 @@
 pipeline {
+    agent any
     parameters {
         string(name: 'BRANCH_NAME', defaultValue: 'develop', description: 'Git Branch to checkout the code from', trim: true)
     }
