@@ -1,5 +1,4 @@
 pipeline {
-    agent any
     parameters {
         string(name: 'BRANCH_NAME', defaultValue: 'develop', description: 'Git Branch to checkout the code from', trim: true)
     }
@@ -10,6 +9,7 @@ pipeline {
                 docker {image 'gradle:6.9-jdk11'}
             }
             steps {
+                sh "gradle -v"
                 sh "./gradlew clean build"
             }
         }
